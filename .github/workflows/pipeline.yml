@@ -43,15 +43,15 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         if: success()
         with:
-            severity: info
-            details: Deployment Succeeded!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          severity: info
+          details: Deployment Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Deployment Failure
         uses: rjstone/discord-webhook-notify@v1
         if: failure()
         with:
           severity: error
-          details: Build broken by commit ${{ github.event.head_commit.sha }}.
+          details: Build failed.
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
